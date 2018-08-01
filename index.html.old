@@ -1,0 +1,28 @@
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<style type="text/css">
+.head {
+	font-family: "Noto Serif CJK JP Black",serif;
+	font-size: 96pt;
+	text-align: center;
+}
+.cmt {
+	font-family: "Noto Serif CJK JP Black",serif;
+	text-align: center;
+}
+.white {
+	color: #FFFFFF;
+}
+</style>
+</head>
+
+<body bgcolor="#000000">
+
+<p class="white head">无内容的思想<br />
+无缘由的悲伤</p>
+
+</body>
+
+</html>

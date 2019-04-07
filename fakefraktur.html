@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>To Fakefraktur</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>To Fakefraktur</h1>
+    <input type="text" id="orig">
+    <button onclick="transRegular()">Regular</button>
+    <button onclick="transBold()">Bold</button>
+    <p id="res"></p>
+    <script>
+        function transRegular() {
+            var orig = document.getElementById("orig").value;
+            var res = "";
+            for (var i = 0; i < orig.length; i++) {
+                chv = orig.charCodeAt(i);
+                if (chv >= 65 && chv <= 90) res += String.fromCodePoint(orig.charCodeAt(i) + (120068 - 65));
+                else if (chv >= 97 && chv <= 122) res += String.fromCodePoint(orig.charCodeAt(i) + (120094 - 97));
+                else res += String.fromCodePoint(orig.charCodeAt(i));
+            }
+            document.getElementById("res").innerHTML = res;
+        }
+        function transBold() {
+            var orig = document.getElementById("orig").value;
+            var res = "";
+            for (var i = 0; i < orig.length; i++) {
+                chv = orig.charCodeAt(i);
+                if (chv >= 65 && chv <= 90) res += String.fromCodePoint(orig.charCodeAt(i) + (120172 - 65));
+                else if (chv >= 97 && chv <= 122) res += String.fromCodePoint(orig.charCodeAt(i) + (120198 - 97));
+                else res += String.fromCodePoint(orig.charCodeAt(i));
+            }
+            document.getElementById("res").innerHTML = res;
+        }
+    </script>
+</body>
+
+</html>

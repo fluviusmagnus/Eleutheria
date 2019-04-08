@@ -4,13 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>To Fakefraktur</title>
     <link rel="stylesheet" href="">
 </head>
 
 <body>
-    <h1>To Fakefraktur</h1>
-    <input type="text" id="orig">
+    <h1>𝕿𝖔 𝕱𝖆𝖐𝖊𝖋𝖗𝖆𝖐𝖙𝖚𝖗</h1>
+    <input type="text" id="orig"><button onclick='document.getElementById("orig").value="";'>Reset</button><br />
+    <input type="checkbox" id="keinsonderz" checked=true>äöüß ersetzen
     <button onclick="transRegular()">Regular</button>
     <button onclick="transBold()">Bold</button>
     <p id="res"></p>
@@ -18,6 +20,15 @@
         function transRegular() {
             var orig = document.getElementById("orig").value;
             var res = "";
+            if (document.getElementById("keinsonderz").checked) {
+                orig = orig.replace(/ä/g, "ae");
+                orig = orig.replace(/ö/g, "oe");
+                orig = orig.replace(/ü/g, "ue");
+                orig = orig.replace(/Ä/g, "Ae");
+                orig = orig.replace(/Ö/g, "Oe");
+                orig = orig.replace(/Ü/g, "Ue");
+                orig = orig.replace(/ß/g, "ss");
+            }
             for (var i = 0; i < orig.length; i++) {
                 chv = orig.charCodeAt(i);
                 if (chv >= 65 && chv <= 90) res += String.fromCodePoint(orig.charCodeAt(i) + (120068 - 65));
@@ -29,6 +40,15 @@
         function transBold() {
             var orig = document.getElementById("orig").value;
             var res = "";
+            if (document.getElementById("keinsonderz").checked) {
+                orig = orig.replace(/ä/g, "ae");
+                orig = orig.replace(/ö/g, "oe");
+                orig = orig.replace(/ü/g, "ue");
+                orig = orig.replace(/Ä/g, "Ae");
+                orig = orig.replace(/Ö/g, "Oe");
+                orig = orig.replace(/Ü/g, "Ue");
+                orig = orig.replace(/ß/g, "ss");
+            }
             for (var i = 0; i < orig.length; i++) {
                 chv = orig.charCodeAt(i);
                 if (chv >= 65 && chv <= 90) res += String.fromCodePoint(orig.charCodeAt(i) + (120172 - 65));

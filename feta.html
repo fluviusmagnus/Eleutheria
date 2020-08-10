@@ -6,41 +6,45 @@
         integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        div.content {
+            max-width: 600px;
+            margin: auto;
+            padding: 2em;
+        }
+    </style>
     <title>你的答案</title>
 </head>
 
 <body>
-    <div class="pure-g">
-        <div class="pure-u-1-5"></div>
-        <div class="pure-u-3-5">
-            <h1>你的答案</h1>
-            <p>v1.0 <a href="https://eleutheria.tech/archives/299/">必读说明</a> &copy; 2020 <a
-                    href="https://eleutheria.tech/">人間夜行</a>
-            </p>
+    <div class="content">
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <h1>你的答案</h1>
+                <p>v1.0 <a href="https://eleutheria.tech/archives/299/">必读说明</a> &copy; 2020 <a
+                        href="https://eleutheria.tech/">人間夜行</a>
+                </p>
+            </div>
         </div>
-        <div class="pure-u-1-5"></div>
-    </div>
-    <div class="pure-g">
-        <div class="pure-u-1-5"></div>
-        <div class="pure-u-3-5">
-            <h2>询问处</h2>
-            <form class="pure-form">
-                <fieldset>
-                    <input type="text" id="frage" placeholder="请在此输入您的问题" />
-                    <input type="button" class="pure-button pure-button-primary" onclick="getAntwort()" value="询问" />
-                    <input type="button" class="pure-button" onclick="clearAll()" value="清除" />
-                </fieldset>
-            </form>
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <h2>询问处</h2>
+                <form class="pure-form">
+                    <fieldset>
+                        <input type="text" id="frage" placeholder="请在此输入您的问题" />
+                        <input type="button" class="pure-button pure-button-primary" onclick="getAntwort()"
+                            value="询问" />
+                        <input type="button" class="pure-button" onclick="clearAll()" value="清除" />
+                    </fieldset>
+                </form>
+            </div>
         </div>
-        <div class="pure-u-1-5"></div>
-    </div>
-    <div class="pure-g">
-        <div class="pure-u-1-5"></div>
-        <div class="pure-u-3-5">
-            <h2>参考答案</h2>
-            <div id="antwort">（请先提问）</div>
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <h2>参考答案</h2>
+                <div id="antwort">（请先提问）</div>
+            </div>
         </div>
-        <div class="pure-u-1-5"></div>
     </div>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -56,6 +60,7 @@
             document.getElementById("frage").value = "";
         }
     </script>
+
 </body>
 
 </html>

@@ -1,0 +1,118 @@
+<html lang="zh-Hans">
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="spectre.min.css">
+    <link rel="stylesheet" href="spectre-exp.min.css">
+    <link rel="stylesheet" href="spectre-icons.min.css">
+    <style type="text/css">
+        div.container {
+            max-width: 768px;
+            margin: auto;
+            padding: 2em;
+        }
+    </style>
+    <title>用户友好服务体验</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="navbar">
+            <section class="navbar-section">
+                <span class="navbar-brand"><b>用户友好</b>服务体验</span>
+                <a href="http://eleutheria.tech/" class="btn btn-link">無限詩藝</a>
+            </section>
+            <section class="navbar-section">
+                <ul id="main-progress" class="step">
+                    <li class="step-item active">
+                        <a href="#step1" class="tooltip" data-tooltip="确实是第一步">第一步</a>
+                    </li>
+                    <li class="step-item">
+                        <a href="#step2" class="tooltip" data-tooltip="第二步？">第二步</a>
+                    </li>
+                    <li class="step-item">
+                        <a href="#step3" class="tooltip" data-tooltip="？？？">第三步</a>
+                    </li>
+                    <li class="step-item">
+                        <a href="#finish" class="tooltip" data-tooltip="安全到达终点">完成</a>
+                    </li>
+                </ul>
+            </section>
+        </header>
+        <hr />
+        <p>欢迎来到<b>用户友好</b>服务体验中心。本系统是<a href="http://eleutheria.tech/">無限詩藝</a>的一部分。</p>
+        <div id="step1">
+            <h2>第一步<a name="step1"></a></h2>
+            <p>首先请告诉我们如何称呼您。</p>
+            <div class="columns">
+                <div class="column col-8 col-xs-12">
+                    <input id="step1-username" type="text" class="form-input" placeholder="您的姓名" />
+                    <p id="step1-usernamemsg" class="d-none form-input-hint"></p>
+                    <label class="form-radio form-inline">
+                        <input id="step1-genderm" type="radio" name="step1-gender" onclick="step1_gender()" />
+                        <i class="form-icon"></i>先生
+                    </label>
+                    <label class="form-radio form-inline">
+                        <input id="step1-genderf" type="radio" name="step1-gender" onclick="step1_gender()" />
+                        <i class="form-icon"></i>女士
+                    </label>
+                    <label class="form-radio form-inline tooltip" data-tooltip="这其实没那么重要，不是吗？">
+                        <input id="step1-genderx" type="radio" name="step1-gender" />
+                        <i class="form-icon"></i>其它
+                    </label>
+                </div>
+                <div class="column col-4">
+                    <button id="step1-submit" class="btn btn-primary" onclick="step1_finish()">确定</button>
+                    <button class="btn" onclick="step1_reset()">清除</button>
+                </div>
+            </div>
+            <p id="step1-loading"></p>
+            <script>
+                function step1_reset() {
+                    document.getElementById("step1-usernamemsg").classList.remove("d-none");
+                    document.getElementById("step1-usernamemsg").innerHTML = "没打算帮您，请您自己来！"
+                    document.getElementById("step1-username").classList.add("is-error");
+                }
+                function step1_gender() {
+                    if (document.getElementById("step1-genderm").checked == true) {
+                        document.getElementById("step1-genderf").checked = true;
+                        return;
+                    }
+                    if (document.getElementById("step1-genderf").checked == true) {
+                        document.getElementById("step1-genderm").checked = true;
+                        return;
+                    }
+                }
+                function step1_finish() {
+                    if (document.getElementById("step1-username").value == "") {
+                        alert("您不至于这样糊弄人吧！");
+                        return;
+                    }
+                    document.getElementById("step1-submit").classList.add("loading");
+                    setTimeout(() => {
+                        document.getElementById("step1-loading").innerHTML += "还没过几秒呢，请您耐心等。"
+                    }, 5000);
+                    setTimeout(() => {
+                        document.getElementById("step1-loading").innerHTML += "<br />请坐和放宽。"
+                    }, 7000);
+                    setTimeout(() => {
+                        document.getElementById("step1-loading").innerHTML += "<br />好了。"
+                    }, 9000);
+                    setTimeout(() => {
+                        document.getElementById("step1").classList.add("d-none");
+                        document.getElementById("step2").classList.remove("d-none");
+                        document.getElementsByClassName("step-item")[0].classList.remove("active");
+                        document.getElementsByClassName("step-item")[1].classList.add("active");
+                    }, 10000);
+                }
+            </script>
+        </div>
+        <div id="step2" class="d-none">
+            <h2>第二步<a name="step2"></a></h2>
+            <p>您好，username！</p>
+        </div>
+    </div>
+</body>
+
+</html>

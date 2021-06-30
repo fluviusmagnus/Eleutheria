@@ -89,6 +89,10 @@
                         alert("您不至于这样糊弄人吧！");
                         return;
                     }
+                    if (document.getElementById("step1-username").value == "username") {
+                        alert("不欢迎测试工程师！再见！");
+                        window.close();
+                    }
                     document.getElementById("step1-submit").classList.add("loading");
                     setTimeout(() => {
                         document.getElementById("step1-loading").innerHTML += "还没过几秒呢，请您耐心等。"

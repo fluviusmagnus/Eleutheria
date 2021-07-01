@@ -12,6 +12,10 @@
             margin: auto;
             padding: 2em;
         }
+
+        div.main {
+            min-height: 800px;
+        }
     </style>
     <title>用户友好服务体验</title>
 </head>
@@ -41,165 +45,169 @@
             </section>
         </header>
         <hr />
-        <p>欢迎来到<b>用户友好</b>服务体验中心。本系统是<a href="http://eleutheria.tech/">無限詩藝</a>赛博艺术的一部分。<br />
-            您可以在此与我们联系，向我们提出您宝贵的意见或建议。
-        </p>
-        <div id="step1">
-            <h2>第一步<a name="step1"></a></h2>
-            <p>首先请告诉我们如何称呼您。</p>
-            <div class="columns">
-                <div class="column col-8 col-xs-12">
-                    <input id="step1-username" type="text" class="form-input" placeholder="您的姓名" />
-                    <p id="step1-usernamemsg" class="d-none form-input-hint"></p>
-                    <label class="form-radio form-inline">
-                        <input id="step1-genderm" type="radio" name="step1-gender" onclick="step1_gender()" />
-                        <i class="form-icon"></i>先生
-                    </label>
-                    <label class="form-radio form-inline">
-                        <input id="step1-genderf" type="radio" name="step1-gender" onclick="step1_gender()" />
-                        <i class="form-icon"></i>女士
-                    </label>
-                    <label class="form-radio form-inline tooltip" data-tooltip="这其实没那么重要，不是吗？">
-                        <input id="step1-genderx" type="radio" name="step1-gender" />
-                        <i class="form-icon"></i>其它
-                    </label>
-                </div>
-                <div class="column col-4">
-                    <button id="step1-submit" class="btn btn-primary" onclick="step1_finish()">确定</button>
-                    <button class="btn" onclick="step1_reset()">清除</button>
-                </div>
-            </div>
-            <div class="modal" id="step1-modal">
-                <div class="modal-container">
-                    <div class="modal-header">
-                        <div class="modal-title h5">提示</div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="content">
-                            <p>您不至于这样糊弄人吧！</p>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary"
-                            onclick="document.getElementById('step1-modal').classList.remove('active');">对不起</button>
-                    </div>
-                </div>
-            </div>
-            <p id="step1-loading"></p>
-            <script>
-                function step1_reset() {
-                    document.getElementById("step1-usernamemsg").classList.remove("d-none");
-                    document.getElementById("step1-usernamemsg").innerHTML = "没打算帮您，请您自己来！"
-                    document.getElementById("step1-username").classList.add("is-error");
-                }
-                function step1_gender() {
-                    if (document.getElementById("step1-genderm").checked == true) {
-                        document.getElementById("step1-genderf").checked = true;
-                        return;
-                    }
-                    if (document.getElementById("step1-genderf").checked == true) {
-                        document.getElementById("step1-genderm").checked = true;
-                        return;
-                    }
-                }
-                function step1_finish() {
-                    if (document.getElementById("step1-username").value == "") {
-                        document.getElementById("step1-modal").classList.add("active");
-                        return;
-                    }
-                    if (document.getElementById("step1-username").value == "username") {
-                        alert("不欢迎测试工程师！再见！");
-                        window.close();
-                    }
-                    document.getElementById("step1-submit").classList.add("loading");
-                    setTimeout(() => {
-                        document.getElementById("step1-loading").innerHTML += "<i class=\"icon icon-check\"></i> 还没过几秒呢，请您耐心等。"
-                    }, 5000);
-                    setTimeout(() => {
-                        document.getElementById("step1-loading").innerHTML += "<br /><i class=\"icon icon-check\"></i> 请坐和放宽。"
-                    }, 10000);
-                    setTimeout(() => {
-                        document.getElementById("step1-loading").innerHTML += "<br /><i class=\"icon icon-check\"></i> 好了。"
-                    }, 14000);
-                    setTimeout(() => {
-                        document.getElementById("step1").classList.add("d-none");
-                        document.getElementById("step2").classList.remove("d-none");
-                        document.getElementsByClassName("step-item")[0].classList.remove("active");
-                        document.getElementsByClassName("step-item")[1].classList.add("active");
-                    }, 15000);
-                }
-            </script>
-        </div>
-        <div id="step2" class="d-none">
-            <h2>第二步<a name="step2"></a></h2>
-            <p>您好，username！</p>
-        </div>
-        <div id="step3" class="d-none">
-            <h2>第三步<a name="step2"></a></h2>
-            <p>您好，username！</p>
-        </div>
-        <div id="step4" class="">
-            <h2>第四步<a name="step2"></a></h2>
-            <p>感谢您与我们联系，您的信息可能<ruby>已经<rt>niemals</rt></ruby>成功提交！<br />
-                为确保服务质量，最后请您为我们本次服务给出评价。
+        <div class="main">
+            <p>欢迎来到<b>用户友好</b>服务体验中心。本系统是<a href="http://eleutheria.tech/">無限詩藝</a>赛博艺术的一部分。<br />
+                您可以在此与我们联系，向我们提出您宝贵的意见或建议。
             </p>
-            <div class="columns">
-                <div class="column col-1">不满</div>
-                <div class="column col-6">
-                    <input id="step4-score" class="slider tooltip form-inline" type="range" min="0" max="100"
-                        value="100" oninput="this.setAttribute('value', this.value);">
-                </div>
-                <div class="column col-1">满意</div>
-            </div>
-            <p></p>
-            <div class="columns">
-                <div class="column col-4">
-                    <button id="step4-cancel" class="btn btn-primary" onclick="step4_cancel()">放弃</button>
-                    <button id="step4-submit" class="btn btn-link" onclick="step4_submit()">提交</button>
-                </div>
-            </div>
-            <div class="modal" id="step4-modal">
-                <div class="modal-container">
-                    <div class="modal-header">
-                        <div class="modal-title h5">致命错误</div>
+            <div id="step1">
+                <h2>第一步<a name="step1"></a></h2>
+                <p>首先请告诉我们如何称呼您。</p>
+                <div class="columns">
+                    <div class="column col-8 col-xs-12">
+                        <input id="step1-username" type="text" class="form-input" placeholder="您的姓名" />
+                        <p id="step1-usernamemsg" class="d-none form-input-hint"></p>
+                        <label class="form-radio form-inline">
+                            <input id="step1-genderm" type="radio" name="step1-gender" onclick="step1_gender()" />
+                            <i class="form-icon"></i>先生
+                        </label>
+                        <label class="form-radio form-inline">
+                            <input id="step1-genderf" type="radio" name="step1-gender" onclick="step1_gender()" />
+                            <i class="form-icon"></i>女士
+                        </label>
+                        <label class="form-radio form-inline tooltip" data-tooltip="这其实没那么重要，不是吗？">
+                            <input id="step1-genderx" type="radio" name="step1-gender" />
+                            <i class="form-icon"></i>其它
+                        </label>
                     </div>
-                    <div class="modal-body">
-                        <div class="content">
-                            <p>哎呀出大错了！所有信息全部丢失。不知道是什么原因，建议您重来呢！</p>
+                    <div class="column col-4">
+                        <button id="step1-submit" class="btn btn-primary" onclick="step1_finish()">确定</button>
+                        <button class="btn" onclick="step1_reset()">清除</button>
+                    </div>
+                </div>
+                <div class="modal" id="step1-modal">
+                    <div class="modal-container">
+                        <div class="modal-header">
+                            <div class="modal-title h5">提示</div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="content">
+                                <p>您不至于这样糊弄人吧！</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary"
+                                onclick="document.getElementById('step1-modal').classList.remove('active');">对不起</button>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-error" onclick="window.location.reload()">谢谢</button>
+                </div>
+                <p id="step1-loading"></p>
+                <script>
+                    function step1_reset() {
+                        document.getElementById("step1-usernamemsg").classList.remove("d-none");
+                        document.getElementById("step1-usernamemsg").innerHTML = "没打算帮您，请您自己来！"
+                        document.getElementById("step1-username").classList.add("is-error");
+                    }
+                    function step1_gender() {
+                        if (document.getElementById("step1-genderm").checked == true) {
+                            document.getElementById("step1-genderf").checked = true;
+                            return;
+                        }
+                        if (document.getElementById("step1-genderf").checked == true) {
+                            document.getElementById("step1-genderm").checked = true;
+                            return;
+                        }
+                    }
+                    function step1_finish() {
+                        if (document.getElementById("step1-username").value == "") {
+                            document.getElementById("step1-modal").classList.add("active");
+                            return;
+                        }
+                        if (document.getElementById("step1-username").value == "username") {
+                            alert("不欢迎测试工程师！再见！");
+                            window.close();
+                        }
+                        document.getElementById("step1-submit").classList.add("loading");
+                        setTimeout(() => {
+                            document.getElementById("step1-loading").innerHTML += "<i class=\"icon icon-check\"></i> 还没过几秒呢，请您耐心等。"
+                        }, 5000);
+                        setTimeout(() => {
+                            document.getElementById("step1-loading").innerHTML += "<br /><i class=\"icon icon-check\"></i> 请坐和放宽。"
+                        }, 10000);
+                        setTimeout(() => {
+                            document.getElementById("step1-loading").innerHTML += "<br /><i class=\"icon icon-check\"></i> 好了。"
+                        }, 14000);
+                        setTimeout(() => {
+                            document.getElementById("step1").classList.add("d-none");
+                            document.getElementById("step2").classList.remove("d-none");
+                            document.getElementsByClassName("step-item")[0].classList.remove("active");
+                            document.getElementsByClassName("step-item")[1].classList.add("active");
+                        }, 15000);
+                    }
+                </script>
+            </div>
+            <div id="step2" class="d-none">
+                <h2>第二步<a name="step2"></a></h2>
+                <p>您好，username！</p>
+            </div>
+            <div id="step3" class="d-none">
+                <h2>第三步<a name="step2"></a></h2>
+                <p>您好，username！</p>
+            </div>
+            <div id="step4" class="">
+                <h2>第四步<a name="step2"></a></h2>
+                <p>感谢您与我们联系，您的信息可能<ruby>已经<rt>niemals</rt></ruby>成功提交！<br />
+                    为确保服务质量，最后请您为我们本次服务给出评价。
+                </p>
+                <div class="columns">
+                    <div class="column col-1">不满</div>
+                    <div class="column col-6">
+                        <input id="step4-score" class="slider tooltip form-inline" type="range" min="0" max="100"
+                            value="100" oninput="this.setAttribute('value', this.value);">
+                    </div>
+                    <div class="column col-1">满意</div>
+                </div>
+                <p></p>
+                <div class="columns">
+                    <div class="column col-4">
+                        <button id="step4-cancel" class="btn btn-primary" onclick="step4_cancel()">放弃</button>
+                        <button id="step4-submit" class="btn btn-link" onclick="step4_submit()">提交</button>
                     </div>
                 </div>
-            </div>
-            <script>
-                function step4_cancel() {
-                    document.getElementById("step4-cancel").classList.add("disabled");
-                }
-                setInterval(() => {
-                    var scorebar = document.getElementById("step4-score");
-                    var scorebar_value = parseInt(scorebar.getAttribute("value"));
-                    if (scorebar_value < 100) {
-                        scorebar.setAttribute("value", scorebar_value + 1);
-                        scorebar.value = scorebar_value + 1;
+                <div class="modal" id="step4-modal">
+                    <div class="modal-container">
+                        <div class="modal-header">
+                            <div class="modal-title h5">致命错误</div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="content">
+                                <p>哎呀出大错了！所有信息全部丢失。不知道是什么原因，建议您重来呢！</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-error" onclick="window.location.reload()">谢谢</button>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function step4_cancel() {
+                        document.getElementById("step4-cancel").classList.add("disabled");
                     }
-                }, 100);
-                function step4_submit() {
-                    document.getElementById("step4-cancel").classList.add("loading");
-                    setTimeout(() => {
-                        document.getElementById("step4-modal").classList.add("active");
-                    }, 5000);
-                }
-            </script>
-            <footer>
-                <p></p>
-                <hr />
-                <p class="text-center text-tiny">© 2021 無限詩藝. <br />
-                    <span class="text-secondary">或许您终将意识到，我们不会收集任何数据.</span>
-                </p>
-            </footer>
+                    setInterval(() => {
+                        var scorebar = document.getElementById("step4-score");
+                        var scorebar_value = parseInt(scorebar.getAttribute("value"));
+                        if (scorebar_value < 100) {
+                            scorebar.setAttribute("value", scorebar_value + 1);
+                            scorebar.value = scorebar_value + 1;
+                        }
+                    }, 100);
+                    function step4_submit() {
+                        document.getElementById("step4-cancel").classList.add("loading");
+                        setTimeout(() => {
+                            document.getElementById("step4-modal").classList.add("active");
+                        }, 5000);
+                    }
+                </script>
+            </div>
         </div>
+        <footer>
+            <p></p>
+            <hr />
+            <p class="text-center text-tiny">© 2021 無限詩藝. <br />
+                <span class="text-secondary">或许您终将意识到，我们不会收集任何数据.</span>
+            </p>
+        </footer>
+
+    </div>
 </body>
 
 </html>

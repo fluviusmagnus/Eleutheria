@@ -63,18 +63,28 @@
     <div class="content">
         <h1>精神的房间</h1>
         <p><?php
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $ispost = $_SERVER['REQUEST_METHOD'] == 'POST';
+            $verfile = fopen("ver.txt", "r") or die("Unable to open file!");
+            $ver = fread($verfile,filesize("ver.txt"));
+            fclose($verfile);
+            if ($ispost) {
                 echo "您的思念已更新";
+                // Update version number.
+                $ver = $ver + 1;
+                $verfile = fopen("ver.txt", "w") or die("Unable to open file!");
+                fwrite($verfile, $ver);
+                fclose($verfile);
             }
-        ?>当前世界的状态<br />
+        ?>当前世界的状态：v<?php
+                echo $ver;
+        ?><br />
             <span id="hash"><?php 
 
 $hashfile = fopen("hash.txt", "r") or die("Unable to open file!");
 $hash = fread($hashfile,filesize("hash.txt"));
 fclose($hashfile);
 
-//判断数据是否为POST而来
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($ispost) {
     
     $hash = hash("sha512", $hash + $_POST["msg"]);
     $hashfile = fopen("hash.txt", "w") or die("Unable to open file!");

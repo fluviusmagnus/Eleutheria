@@ -2,21 +2,63 @@
   font-family: GuanZhi;
   src: url(guanzhi.ttf);
 }
+
 h1 {
-  text-align: center;
-}
-body {
-  margin-right: auto;
-  font-family: GuanZhi;
-  max-width: 600px;
-  margin-left: auto;
-}
-.footer {
-  font-size: smaller;
-  color: silver;
-  text-align: center;
-}
-p {
-  text-align: justify;
+  font-size: xx-large;
+  color: white;
 }
 
+body {
+  font-family: GuanZhi;
+  max-width: 600px;
+  margin-right: auto;
+  color: lightgray;
+  margin-left: auto;
+  padding: 20px;
+  background-color: darkblue;
+}
+
+.header {
+  text-align: center;
+}
+
+.footer {
+  font-size: smaller;
+  color: gray;
+  text-align: center;
+}
+
+.article {
+  text-align: left;
+}
+
+hr {
+  height: 2px;
+}
+
+a {
+  color: yellow;
+}
+
+a:visited {
+  color: purple;
+}
+
+a:hover {
+  color: lightyellow;
+}
+
+a:active {
+  color: red;
+}
+
+b,
+em {
+  color: aqua;
+  font-weight: normal;
+}
+
+i {
+  color: gray;
+  font-style: normal;
+}

@@ -1,17 +1,22 @@
+@font-face {
+  font-family: GuanZhi;
+  src: url(guanzhi.ttf);
+}
 h1 {
   text-align: center;
 }
 body {
   margin-right: auto;
-  font-family: "Times New Roman",Times,serif;
+  font-family: GuanZhi;
   max-width: 600px;
   margin-left: auto;
 }
 .footer {
   font-size: smaller;
-  color: #cccccc;
+  color: silver;
   text-align: center;
 }
 p {
   text-align: justify;
 }
+

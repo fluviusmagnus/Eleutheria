@@ -1,6 +1,6 @@
 @font-face {
   font-family: Pixel;
-  src: url(fusion-pixel-10px-monospaced-ja.ttf);
+  src: url(/fusion-pixel-10px-monospaced-ja.ttf);
 }
 
 h1 {
@@ -52,10 +52,14 @@ a:active {
   color: red;
 }
 
-b,
-em {
+b {
   color: aqua;
   font-weight: normal;
+}
+
+em {
+  color: red;
+  font-style: normal;
 }
 
 i {

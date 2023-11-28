@@ -1,6 +1,6 @@
 @font-face {
-  font-family: GuanZhi;
-  src: url(guanzhi.ttf);
+  font-family: Pixel;
+  src: url(fusion-pixel-10px-monospaced-ja.ttf);
 }
 
 h1 {
@@ -9,7 +9,7 @@ h1 {
 }
 
 body {
-  font-family: GuanZhi;
+  font-family: Pixel;
   max-width: 600px;
   margin-right: auto;
   color: lightgray;

@@ -20,6 +20,7 @@ h6 {
 h1 {
   font-size: xx-large;
   text-shadow: 0 0 20px white;
+  font-weight: bold;
 }
 
 h2,

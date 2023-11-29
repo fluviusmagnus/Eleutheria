@@ -3,9 +3,34 @@
   src: url(/fusion-pixel-10px-monospaced-ja.ttf);
 }
 
+* {
+  font-style: normal;
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
+}
+
 h1 {
   font-size: xx-large;
-  color: white;
+  text-shadow: 0 0 20px white;
+}
+
+h2,
+h3 {
+  font-size: large;
+}
+
+h4,
+h5,
+h6 {
+  font-size: medium;
 }
 
 body {
@@ -20,6 +45,7 @@ body {
 
 .header {
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .footer {
@@ -54,15 +80,12 @@ a:active {
 
 b {
   color: yellow;
-  font-weight: normal;
 }
 
 em {
   color: red;
-  font-style: normal;
 }
 
 i {
   color: gray;
-  font-style: normal;
 }

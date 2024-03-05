@@ -16,43 +16,44 @@
   <div class="article">
     <h1>残酷客服中心</h1>
     <p><em>注意，此客服虽然愿意您服务，但是她的脾气非常暴躁。欲使用本服务，您的年龄必须在18岁以上。</em></p>
-  </div>
-  <flowise-fullchatbot></flowise-fullchatbot>
-  <script type="module">
-    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
-    Chatbot.initFull({
-      chatflowid: "afbafff3-0bae-4c2e-a499-24ae4625a1d9",
-      apiHost: "https://flowise.elephantus.moe",
-      theme: {
-        chatWindow: {
-          welcomeMessage: "So, what do you want? Be quick. I have no patience.",
-          backgroundColor: "#ffffff",
-          height: 400,
-          fontSize: 12,
-          poweredByTextColor: "#303235",
-          botMessage: {
-            backgroundColor: "#f7f8ff",
-            textColor: "#303235",
-            showAvatar: false,
-            avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png",
-          },
-          userMessage: {
-            backgroundColor: "#3B81F6",
-            textColor: "#ffffff",
-            showAvatar: false,
-            avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
-          },
-          textInput: {
-            placeholder: "Type your question",
+    <flowise-fullchatbot></flowise-fullchatbot>
+    <script type="module">
+      import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+      Chatbot.initFull({
+        chatflowid: "afbafff3-0bae-4c2e-a499-24ae4625a1d9",
+        apiHost: "https://flowise.elephantus.moe",
+        theme: {
+          chatWindow: {
+            welcomeMessage: "So, what do you want? Be quick. I have no patience.",
             backgroundColor: "#ffffff",
-            textColor: "#303235",
-            sendButtonColor: "#3B81F6",
+            height: 400,
+            fontSize: 12,
+            poweredByTextColor: "#303235",
+            botMessage: {
+              backgroundColor: "#f7f8ff",
+              textColor: "#303235",
+              showAvatar: false,
+              avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png",
+            },
+            userMessage: {
+              backgroundColor: "#3B81F6",
+              textColor: "#ffffff",
+              showAvatar: false,
+              avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
+            },
+            textInput: {
+              placeholder: "Type your question",
+              backgroundColor: "#ffffff",
+              textColor: "#303235",
+              sendButtonColor: "#3B81F6",
+            }
           }
         }
-      }
-    })
-  </script>
-  <p><i>请不要输入任何涉及个人隐私的信息。所有对话数据将被保存用于科研目的，或者，不特定时间后直接删除。如有不明点，请与<a href="mailto:ich@eleutheria.tech">管理员</a>联系。</i></p>
+      })
+    </script>
+    <p><i>请不要输入任何涉及个人隐私的信息。所有对话数据将被保存用于科研目的，或者，不特定时间后直接删除。如有不明点，请与<a href="mailto:ich@eleutheria.tech">管理员</a>联系。</i>
+    </p>
+  </div>
   <hr>
   <div class="footer">推荐使用 800 * 600 分辨率浏览本站.<br>
     cyber.eleutheria.tech is a mirror of poesis-electronica.de<br>
